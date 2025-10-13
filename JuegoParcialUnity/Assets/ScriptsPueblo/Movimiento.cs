@@ -24,8 +24,8 @@ public class Movimiento : MonoBehaviour
     private Vector2 startPoint;
     private Vector3 respawnPoint;
 
-    [Header("Audio")]
-    public AudioSource saltar;
+    //[Header("Audio")]
+    //public AudioSource saltar;
 
 
 
@@ -55,7 +55,7 @@ public class Movimiento : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, speedSalto);
             anim.SetBool("Saltar", true);
-            saltar.Play();
+            //saltar.Play();
         }
 
         if (isGrounded() && rb.velocity.y <= 0)
@@ -79,7 +79,7 @@ public class Movimiento : MonoBehaviour
         {
             rb.velocity = new Vector2(rb.velocity.x, speedSalto);
             anim.SetBool("Saltar", true);
-            saltar.Play();
+            //saltar.Play();
         }
 
 
