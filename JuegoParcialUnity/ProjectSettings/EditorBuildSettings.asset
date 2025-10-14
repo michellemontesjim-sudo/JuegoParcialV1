@@ -8,4 +8,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Pueblo.unity
+    guid: f43fa49368a1eab409ee51df7696d79b
+  - enabled: 1
+    path: Assets/Scenes/BosqueOJuego.unity
+    guid: cb1d0fe7f4a574b4ba28fdfe7aac70e3
+  - enabled: 1
+    path: Assets/Scenes/Jefe.unity
+    guid: a02b0bcf9aaa1d4429665e36197db119
+  - enabled: 1
+    path: Assets/Scenes/Final.unity
+    guid: 3d24362c407766c40a98948b1fa9b74b
   m_configObjects: {}
