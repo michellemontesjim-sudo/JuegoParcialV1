@@ -3,41 +3,23 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - 'Base '
+  - 'fondo '
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Piso
   - Water
   - UI
-  - Piso
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  m_SortingLayers:
+m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: juego
+    uniqueID: 4038366687
+    locked: 0
+  - name: fondo
+    uniqueID: 3396342273
     locked: 0
