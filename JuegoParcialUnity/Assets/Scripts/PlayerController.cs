@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 public class PlayerController : MonoBehaviour
@@ -100,4 +100,5 @@ public class PlayerController : MonoBehaviour
         rb.velocity = Vector2.zero;
         transform.position = pos + (Vector3)respawnOffset;
     }
+
 }
