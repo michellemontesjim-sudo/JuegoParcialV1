@@ -405,9 +405,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcNombre: Willy
   oraciones:
-  - "S\xED... Pero me preguntaba porque alguien con tanta fuerza no estar\xEDa solo"
+  - "Una de un ser oscuro y vil, me sorprendi\xF3 que alguien as\xED no est\xE9 solo..."
   opciones:
-  - textoOpcion: "\xBFLupus no est\xE1 solo?"
+  - textoOpcion: "\xBFEl mal no est\xE1 solo?"
     siguienteDialogo: {fileID: 1599248386}
   - textoOpcion: Vaya...
     siguienteDialogo: {fileID: 2016918529}
@@ -2770,7 +2770,7 @@ MonoBehaviour:
   oraciones:
   - "Buenas caballero, \xBFA d\xF3nde tan determinado?"
   opciones:
-  - textoOpcion: "\xA1A derrotar al mago Lupus!"
+  - textoOpcion: "\xA1A una aventura!"
     siguienteDialogo: {fileID: 373733788}
   - textoOpcion: Solo estoy paseando...
     siguienteDialogo: {fileID: 173181827}
@@ -6457,7 +6457,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcNombre: Martha
   oraciones:
-  - "\xA1Aah! Me da miedo ese nombre... No deber\xEDas..."
+  - "\xA1Aah! Me dan miedo esas cosas... No deber\xEDas..."
   opciones:
   - textoOpcion: "Lo har\xE9, estar\xE9 bien, es mi misi\xF3n..."
     siguienteDialogo: {fileID: 1799136489}
@@ -7343,7 +7343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcNombre: Bob
   oraciones:
-  - "Tenga cuidado, no vaya muy lejos o se encontrar\xE1 con el mago tenebroso..."
+  - "Tenga cuidado, no vaya muy lejos o se encontrar\xE1 con el mal tenebroso..."
   opciones: []
 --- !u!4 &403158488
 Transform:
@@ -23940,7 +23940,7 @@ MonoBehaviour:
   - "Mm... Estoy seguro que mi libro cay\xF3 en alguna parte... dec\xEDa algo de
     la leyenda..."
   opciones:
-  - textoOpcion: "\xBFLa de Lupus?"
+  - textoOpcion: "\xBFCu\xE1l?"
     siguienteDialogo: {fileID: 17549907}
 --- !u!4 &1122074278
 Transform:
@@ -41995,8 +41995,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   npcNombre: Martha
   oraciones:
-  - "Entonces d\xE9jame aconsejarte que el camino hacia Lupus es peligroso, el bosque
-    tiene criaturas aterroradoras... Ten cuidado"
+  - "Entonces, te aconsejar\xE9 que los viajes por este mundo son peligrosos, ten
+    cuidado..."
   opciones: []
 --- !u!4 &1799136490
 Transform:
@@ -46056,8 +46056,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mensaje: Presiona E para leer el libro
-  mensajeInteraccion: "Se rumorea que el gran Lupus no trabaja solo... un secuaz
-    que lo acompa\xF1a y..."
+  mensajeInteraccion: "Se rumorea que el gran mal no trabaja solo... un secuaz que
+    lo acompa\xF1a y..."
   textoUI: {fileID: 872367742}
 --- !u!212 &1991784409
 SpriteRenderer:
