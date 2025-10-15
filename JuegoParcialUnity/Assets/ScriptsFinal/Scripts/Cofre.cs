@@ -4,24 +4,34 @@ using UnityEngine;
 
 public class Cofre : MonoBehaviour
 {
-    public int CantidadOro = 100;
-    private Animator animator;
-    private bool abierto = false;
+    public Animator animator;
+    private bool jugadorCerca = false;
+    public int oro = 100;
 
-    void Start()
+    void Update()
     {
-        animator = GetComponent<Animator>();
+        // Si el jugador está cerca y presiona la tecla E, se abre el cofre
+        if (jugadorCerca && Input.GetKeyDown(KeyCode.E))
+        {
+            animator.SetBool("IsOpen", true);
+            Debug.Log("Has recibido " + oro + " de oro!");
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
-            abierto = !abierto; // alterna abrir/cerrar
-            animator.SetBool("IsOpen", abierto);
+            jugadorCerca = true;
+            Debug.Log("Presiona E para abrir el cofre");
+        }
+    }
 
-            if (abierto)
-                Debug.Log($"Has recibido {CantidadOro} de oro!");
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            jugadorCerca = false;
         }
     }
 }
