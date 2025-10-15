@@ -1,7 +1,9 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections; 
+using System.Collections.Generic;
+
 
 public class Cofre : MonoBehaviour
 {
@@ -15,7 +17,7 @@ public class Cofre : MonoBehaviour
     public TextMeshProUGUI textoFinal;
     public float fadeDuration = 2f;
 
-    public AudioSource audioSource; // 🎵 Agregado para el sonido del cofre
+    public AudioSource audioSource;
 
     private bool cofreAbierto = false;
 
@@ -23,6 +25,13 @@ public class Cofre : MonoBehaviour
     {
         panelDialogo.SetActive(false);
         panelFinal.SetActive(false);
+
+       
+        if (audioSource != null)
+        {
+            audioSource.Stop();
+            audioSource.playOnAwake = false;
+        }
     }
 
     void Update()
@@ -33,8 +42,12 @@ public class Cofre : MonoBehaviour
             {
                 animator.SetBool("IsOpen", true);
 
-                // 🎵 Reproducir sonido al abrir el cofre
-                if (audioSource != null) audioSource.Play();
+                
+                if (audioSource != null)
+                {
+                    audioSource.Stop(); 
+                    audioSource.Play();
+                }
 
                 StartCoroutine(DialogoSecuencial());
                 cofreAbierto = true;
