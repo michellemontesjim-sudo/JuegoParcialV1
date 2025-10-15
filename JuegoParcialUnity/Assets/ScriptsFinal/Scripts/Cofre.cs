@@ -8,19 +8,21 @@ public class Cofre : MonoBehaviour
     public Animator animator;
     private bool jugadorCerca = false;
     public int oro = 100;
-    public GameObject panelDialogo;       // Panel del diálogo normal
-    public TextMeshProUGUI textoDialogo;  // Texto del diálogo normal
+    public GameObject panelDialogo;
+    public TextMeshProUGUI textoDialogo;
 
-    public GameObject panelFinal;         // Panel negro final
-    public TextMeshProUGUI textoFinal;    // Texto del panel final
-    public float fadeDuration = 2f;       // Duración del fade
+    public GameObject panelFinal;
+    public TextMeshProUGUI textoFinal;
+    public float fadeDuration = 2f;
+
+    public AudioSource audioSource; // 🎵 Agregado para el sonido del cofre
 
     private bool cofreAbierto = false;
 
     private void Start()
     {
         panelDialogo.SetActive(false);
-        panelFinal.SetActive(false);  // Asegurar que el panel final esté apagado al inicio
+        panelFinal.SetActive(false);
     }
 
     void Update()
@@ -30,6 +32,10 @@ public class Cofre : MonoBehaviour
             if (!cofreAbierto)
             {
                 animator.SetBool("IsOpen", true);
+
+                // 🎵 Reproducir sonido al abrir el cofre
+                if (audioSource != null) audioSource.Play();
+
                 StartCoroutine(DialogoSecuencial());
                 cofreAbierto = true;
             }
@@ -55,7 +61,7 @@ public class Cofre : MonoBehaviour
         yield return new WaitForSeconds(3f);
 
         panelDialogo.SetActive(false);
-        StartCoroutine(MostrarFinal()); // Aquí aparece el panel final
+        StartCoroutine(MostrarFinal());
     }
 
     IEnumerator MostrarFinal()
@@ -97,7 +103,6 @@ public class Cofre : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorCerca = false;
-
             if (panelDialogo != null)
             {
                 panelDialogo.SetActive(false);
