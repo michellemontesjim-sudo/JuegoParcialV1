@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI; 
-using TMPro; 
+using UnityEngine.UI;
+using TMPro;
 
 public class Cofre : MonoBehaviour
 {
@@ -10,7 +10,6 @@ public class Cofre : MonoBehaviour
     private bool jugadorCerca = false;
     public int oro = 100;
     public GameObject panelDialogo;
-
 
     public TextMeshProUGUI textoDialogo;
 
@@ -28,7 +27,7 @@ public class Cofre : MonoBehaviour
             if (!cofreAbierto)
             {
                 animator.SetBool("IsOpen", true);
-                textoDialogo.text = "¡Has recibido " + oro + " de oro!";
+                StartCoroutine(DialogoSecuencial()); // Inicia el diálogo en partes
                 cofreAbierto = true;
             }
             else
@@ -36,6 +35,23 @@ public class Cofre : MonoBehaviour
                 textoDialogo.text = "El cofre ya está vacío...";
             }
         }
+    }
+
+    IEnumerator DialogoSecuencial()
+    {
+        textoDialogo.text = "¡Has recibido " + oro + " de oro!";
+        yield return new WaitForSeconds(2f);
+
+        textoDialogo.text = "Queremos recompensarte por esta gran batalla que tuviste...";
+        yield return new WaitForSeconds(3f);
+
+        textoDialogo.text = "Sabemos que no fue fácil para ti, viajero...";
+        yield return new WaitForSeconds(3f);
+
+        textoDialogo.text = "Continúa con tu camino, gran héroe.";
+        yield return new WaitForSeconds(3f);
+
+        panelDialogo.SetActive(false); // Se cierra al final (opcional)
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -53,7 +69,10 @@ public class Cofre : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorCerca = false;
-            panelDialogo.SetActive(false);
+            if (panelDialogo != null)
+            {
+                panelDialogo.SetActive(false);
+            }
         }
     }
 }
