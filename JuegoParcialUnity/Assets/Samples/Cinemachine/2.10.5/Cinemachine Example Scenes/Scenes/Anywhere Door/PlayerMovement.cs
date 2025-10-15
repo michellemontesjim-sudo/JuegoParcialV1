@@ -6,6 +6,7 @@ namespace Cinemachine.Examples
     {
         public float movementSpeed = 10f;
         public float lookatspeed = 5f;
+        internal bool canMove;
 
         void Update()
         {

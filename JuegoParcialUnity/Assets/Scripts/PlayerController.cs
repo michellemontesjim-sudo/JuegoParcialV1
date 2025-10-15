@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     bool isGrounded;
     bool isTouchingWall;
     bool facingRight = true;
+    internal bool canMove;
 
     void Awake()
     {

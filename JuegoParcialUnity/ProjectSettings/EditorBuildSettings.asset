@@ -27,6 +27,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Final.unity
     guid: 3d24362c407766c40a98948b1fa9b74b
   - enabled: 1
+<<<<<<< Updated upstream
     path: Assets/Scenes/GameOver.unity
     guid: 4f7a3c020a1f2b743a7d8ca0330cfe42
+=======
+    path: Assets/Scenes/BosqueOJuego 1.unity
+    guid: b39310b9c189e8142a6b62fb383dde0c
+  - enabled: 1
+    path: Assets/Scenes/Battle.unity
+    guid: 2a823229b3abcb046a913ce7f8c93767
+>>>>>>> Stashed changes
   m_configObjects: {}
