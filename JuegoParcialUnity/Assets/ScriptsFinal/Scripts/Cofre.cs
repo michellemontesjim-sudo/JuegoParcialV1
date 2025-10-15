@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -9,15 +8,19 @@ public class Cofre : MonoBehaviour
     public Animator animator;
     private bool jugadorCerca = false;
     public int oro = 100;
-    public GameObject panelDialogo;
+    public GameObject panelDialogo;       // Panel del diálogo normal
+    public TextMeshProUGUI textoDialogo;  // Texto del diálogo normal
 
-    public TextMeshProUGUI textoDialogo;
+    public GameObject panelFinal;         // Panel negro final
+    public TextMeshProUGUI textoFinal;    // Texto del panel final
+    public float fadeDuration = 2f;       // Duración del fade
 
     private bool cofreAbierto = false;
 
     private void Start()
     {
         panelDialogo.SetActive(false);
+        panelFinal.SetActive(false);  // Asegurar que el panel final esté apagado al inicio
     }
 
     void Update()
@@ -27,7 +30,7 @@ public class Cofre : MonoBehaviour
             if (!cofreAbierto)
             {
                 animator.SetBool("IsOpen", true);
-                StartCoroutine(DialogoSecuencial()); // Inicia el diálogo en partes
+                StartCoroutine(DialogoSecuencial());
                 cofreAbierto = true;
             }
             else
@@ -51,7 +54,32 @@ public class Cofre : MonoBehaviour
         textoDialogo.text = "Continúa con tu camino, gran héroe.";
         yield return new WaitForSeconds(3f);
 
-        panelDialogo.SetActive(false); // Se cierra al final (opcional)
+        panelDialogo.SetActive(false);
+        StartCoroutine(MostrarFinal()); // Aquí aparece el panel final
+    }
+
+    IEnumerator MostrarFinal()
+    {
+        panelFinal.SetActive(true);
+        Image panelImage = panelFinal.GetComponent<Image>();
+
+        Color colorFondo = panelImage.color;
+        colorFondo.a = 0;
+        panelImage.color = colorFondo;
+
+        textoFinal.color = new Color(textoFinal.color.r, textoFinal.color.g, textoFinal.color.b, 0);
+
+        float t = 0;
+        while (t < fadeDuration)
+        {
+            t += Time.deltaTime;
+            float alpha = t / fadeDuration;
+
+            panelImage.color = new Color(colorFondo.r, colorFondo.g, colorFondo.b, alpha);
+            textoFinal.color = new Color(textoFinal.color.r, textoFinal.color.g, textoFinal.color.b, alpha);
+
+            yield return null;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -69,6 +97,7 @@ public class Cofre : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             jugadorCerca = false;
+
             if (panelDialogo != null)
             {
                 panelDialogo.SetActive(false);
