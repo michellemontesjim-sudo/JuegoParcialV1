@@ -171,6 +171,7 @@ public class InfiniteParallaxScroller : MonoBehaviour
                 segments.Insert(0, topMost);
             }
         }
+        
 
         previousCamPos = camPos;
     }
